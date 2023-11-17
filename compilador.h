@@ -18,6 +18,7 @@ typedef enum simbolos {
   simb_identificador, simb_numero,
   simb_ponto, simb_virgula, simb_ponto_e_virgula, simb_dois_pontos,
   simb_atribuicao, simb_abre_parenteses, simb_fecha_parenteses,
+  simb_integer, simb_boolean,
 } simbolos;
 
 
@@ -31,6 +32,7 @@ extern char token[TAM_TOKEN];
 extern int nivel_lexico;
 extern int desloc;
 extern int nl;
+extern int nc;
 
 
 /* -------------------------------------------------------------------
@@ -38,5 +40,7 @@ extern int nl;
  * ------------------------------------------------------------------- */
 
 void geraCodigo (char*, char*);
+void geraCodigoParams (char* rot, char* comando, char* arg);
+void geraCodigo1ParamNum (char* rot, char* comando, int arg);
 int yylex();
 void yyerror(const char *s);
