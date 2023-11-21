@@ -1,0 +1,10 @@
+     INPP
+     AMEM 2
+     DSVS R00
+R00: NADA 
+     LEIT
+     ARMZ 0, 0
+     LEIT
+     ARMZ 0, 1
+     CRCT 1
+     SOMA

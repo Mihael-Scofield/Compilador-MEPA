@@ -1,0 +1,287 @@
+Terminais sem uso na gramática
+
+    ABRE_PARENTESES
+    FECHA_PARENTESES
+
+
+Gramática
+
+    0 $accept: geral $end
+
+    1 geral: expr
+    2      | bool_expr
+
+    3 expr: expr MAIS termo
+    4     | expr MENOS termo
+    5     | termo
+
+    6 bool_expr: bool_expr AND bool_termo
+    7          | bool_termo
+
+    8 termo: termo ASTERISCO fator_int
+    9      | termo DIV fator_int
+   10      | fator_int
+
+   11 bool_termo: bool_termo OR bool_fator
+   12           | bool_fator
+
+   13 fator_int: INT
+
+   14 bool_fator: BOOL
+
+
+Terminais, com as regras onde eles aparecem
+
+    $end (0) 0
+    error (256)
+    INT (258) 13
+    BOOL (259) 14
+    MAIS (260) 3
+    MENOS (261) 4
+    ASTERISCO (262) 8
+    DIV (263) 9
+    ABRE_PARENTESES (264)
+    FECHA_PARENTESES (265)
+    OR (266) 11
+    AND (267) 6
+
+
+Não terminais com as regras onde eles aparecem
+
+    $accept (13)
+        à esquerda: 0
+    geral (14)
+        à esquerda: 1 2
+        à direita: 0
+    expr (15)
+        à esquerda: 3 4 5
+        à direita: 1 3 4
+    bool_expr (16)
+        à esquerda: 6 7
+        à direita: 2 6
+    termo (17)
+        à esquerda: 8 9 10
+        à direita: 3 4 5 8 9
+    bool_termo (18)
+        à esquerda: 11 12
+        à direita: 6 7 11
+    fator_int (19)
+        à esquerda: 13
+        à direita: 8 9 10
+    bool_fator (20)
+        à esquerda: 14
+        à direita: 11 12
+
+
+Estado 0
+
+    0 $accept: • geral $end
+
+    INT   deslocar, e ir ao estado 1
+    BOOL  deslocar, e ir ao estado 2
+
+    geral       ir ao estado 3
+    expr        ir ao estado 4
+    bool_expr   ir ao estado 5
+    termo       ir ao estado 6
+    bool_termo  ir ao estado 7
+    fator_int   ir ao estado 8
+    bool_fator  ir ao estado 9
+
+
+Estado 1
+
+   13 fator_int: INT •
+
+    $padrão  reduzir usando a regra 13 (fator_int)
+
+
+Estado 2
+
+   14 bool_fator: BOOL •
+
+    $padrão  reduzir usando a regra 14 (bool_fator)
+
+
+Estado 3
+
+    0 $accept: geral • $end
+
+    $end  deslocar, e ir ao estado 10
+
+
+Estado 4
+
+    1 geral: expr •
+    3 expr: expr • MAIS termo
+    4     | expr • MENOS termo
+
+    MAIS   deslocar, e ir ao estado 11
+    MENOS  deslocar, e ir ao estado 12
+
+    $padrão  reduzir usando a regra 1 (geral)
+
+
+Estado 5
+
+    2 geral: bool_expr •
+    6 bool_expr: bool_expr • AND bool_termo
+
+    AND  deslocar, e ir ao estado 13
+
+    $padrão  reduzir usando a regra 2 (geral)
+
+
+Estado 6
+
+    5 expr: termo •
+    8 termo: termo • ASTERISCO fator_int
+    9      | termo • DIV fator_int
+
+    ASTERISCO  deslocar, e ir ao estado 14
+    DIV        deslocar, e ir ao estado 15
+
+    $padrão  reduzir usando a regra 5 (expr)
+
+
+Estado 7
+
+    7 bool_expr: bool_termo •
+   11 bool_termo: bool_termo • OR bool_fator
+
+    OR  deslocar, e ir ao estado 16
+
+    $padrão  reduzir usando a regra 7 (bool_expr)
+
+
+Estado 8
+
+   10 termo: fator_int •
+
+    $padrão  reduzir usando a regra 10 (termo)
+
+
+Estado 9
+
+   12 bool_termo: bool_fator •
+
+    $padrão  reduzir usando a regra 12 (bool_termo)
+
+
+Estado 10
+
+    0 $accept: geral $end •
+
+    $padrão  aceitar
+
+
+Estado 11
+
+    3 expr: expr MAIS • termo
+
+    INT  deslocar, e ir ao estado 1
+
+    termo      ir ao estado 17
+    fator_int  ir ao estado 8
+
+
+Estado 12
+
+    4 expr: expr MENOS • termo
+
+    INT  deslocar, e ir ao estado 1
+
+    termo      ir ao estado 18
+    fator_int  ir ao estado 8
+
+
+Estado 13
+
+    6 bool_expr: bool_expr AND • bool_termo
+
+    BOOL  deslocar, e ir ao estado 2
+
+    bool_termo  ir ao estado 19
+    bool_fator  ir ao estado 9
+
+
+Estado 14
+
+    8 termo: termo ASTERISCO • fator_int
+
+    INT  deslocar, e ir ao estado 1
+
+    fator_int  ir ao estado 20
+
+
+Estado 15
+
+    9 termo: termo DIV • fator_int
+
+    INT  deslocar, e ir ao estado 1
+
+    fator_int  ir ao estado 21
+
+
+Estado 16
+
+   11 bool_termo: bool_termo OR • bool_fator
+
+    BOOL  deslocar, e ir ao estado 2
+
+    bool_fator  ir ao estado 22
+
+
+Estado 17
+
+    3 expr: expr MAIS termo •
+    8 termo: termo • ASTERISCO fator_int
+    9      | termo • DIV fator_int
+
+    ASTERISCO  deslocar, e ir ao estado 14
+    DIV        deslocar, e ir ao estado 15
+
+    $padrão  reduzir usando a regra 3 (expr)
+
+
+Estado 18
+
+    4 expr: expr MENOS termo •
+    8 termo: termo • ASTERISCO fator_int
+    9      | termo • DIV fator_int
+
+    ASTERISCO  deslocar, e ir ao estado 14
+    DIV        deslocar, e ir ao estado 15
+
+    $padrão  reduzir usando a regra 4 (expr)
+
+
+Estado 19
+
+    6 bool_expr: bool_expr AND bool_termo •
+   11 bool_termo: bool_termo • OR bool_fator
+
+    OR  deslocar, e ir ao estado 16
+
+    $padrão  reduzir usando a regra 6 (bool_expr)
+
+
+Estado 20
+
+    8 termo: termo ASTERISCO fator_int •
+
+    $padrão  reduzir usando a regra 8 (termo)
+
+
+Estado 21
+
+    9 termo: termo DIV fator_int •
+
+    $padrão  reduzir usando a regra 9 (termo)
+
+
+Estado 22
+
+   11 bool_termo: bool_termo OR bool_fator •
+
+    $padrão  reduzir usando a regra 11 (bool_termo)

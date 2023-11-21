@@ -1,0 +1,94 @@
+program 	# program 
+ ident 	# exemplo75 
+ abre_parenteses  	# ( 
+ ident 	# input 
+Achei um cara de token input, indice sera 0 e passagem por Valor
+ virgula  	# , 
+ ident 	# output 
+Achei um cara de token output, indice sera 1 e passagem por Valor
+ fecha_parenteses 	# ) 
+ pt_virgula  	# ; 
+var  	# var 
+ ident 	# a 
+ virgula  	# , 
+ ident 	# b 
+ dois pontos 	# : 
+ tipo 	# integer 
+ pt_virgula  	# ; 
+ ident 	# m 
+ dois pontos 	# : 
+ tipo 	# boolean 
+ pt_virgula  	# ; 
+procedure  	# procedure 
+ ident 	# p 
+ abre_parenteses  	# ( 
+var  	# var 
+ ident 	# c 
+Achei um cara de token c, indice sera 0 e passagem por Referencia
+ dois pontos 	# : 
+ tipo 	# integer 
+ pt_virgula  	# ; 
+ ident 	# d 
+Achei um cara de token d, indice sera 1 e passagem por Valor
+ virgula  	# , 
+ ident 	# e 
+Achei um cara de token e, indice sera 2 e passagem por Valor
+ dois pontos 	# : 
+ tipo 	# integer 
+ fecha_parenteses 	# ) 
+ pt_virgula  	# ; 
+var  	# var 
+ ident 	# k 
+ dois pontos 	# : 
+ tipo 	# integer 
+ pt_virgula  	# ; 
+begin 	# begin 
+ ident 	# k 
+ atribuicao  	# := 
+ ident 	# c 
+Ta, isso eh um parametro
+ mais 	# + 
+ ident 	# d 
+Ta, isso eh um parametro
+ mais 	# + 
+ ident 	# e 
+Ta, isso eh um parametro
+ pt_virgula  	# ; 
+ ident 	# e 
+ atribuicao  	# := 
+ ident 	# c 
+Ta, isso eh um parametro
+ mais 	# + 
+ ident 	# k 
+ pt_virgula  	# ; 
+ ident 	# c 
+ atribuicao  	# := 
+ numero 	# 3 
+ pt_virgula  	# ; 
+end  	# end 
+begin 	# begin 
+ ident 	# a 
+ atribuicao  	# := 
+ numero 	# 1 
+ pt_virgula  	# ; 
+ ident 	# b 
+ atribuicao  	# := 
+ numero 	# 2 
+ pt_virgula  	# ; 
+ ident 	# p 
+ abre_parenteses  	# ( 
+ ident 	# a 
+Estou no procedimento p parametro 0
+	Parametro por copiaaa
+ virgula  	# , 
+ ident 	# b 
+Estou no procedimento p parametro 1
+	Parametro por copiaaa
+ virgula  	# , 
+ ident 	# b 
+Estou no procedimento p parametro 2
+	Parametro por copiaaa
+ fecha_parenteses 	# ) 
+ pt_virgula  	# ; 
+end  	# end 
+ ponto  	# .

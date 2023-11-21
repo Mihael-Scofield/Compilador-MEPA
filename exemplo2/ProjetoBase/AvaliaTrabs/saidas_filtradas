@@ -1,0 +1,41 @@
+Usage: avaliaTrab.sh <arquivo executavel compilador
+Avalia��o: Para os primeiros quatro erros, meio ponto por erro.
+Avalia��o: Para os demais, um ponto por erro.
+Exemplo5 ... 2c2,3
+
+Exemplo7.01 ... Exemplo7.02 ... 19c19
+Exemplo7.03 ... Exemplo7.04 ... Exemplo7.05 ... 11c11
+Exemplo8.10 ... 11c11
+<      CRVI 1, -4
+---
+>      CRVL 1, -4
+Exemplo8.12 ... syntax error
+Exemplo8.05 ... 2c2,3
+Exemplo8.06 ... 17c17
+Exemplo8.07 ... 17c17
+59,61c59
+<      DSVS R10
+< R09: NADA 
+<      CHPR R01, 1
+---
+>      DSVS R09
+63c61,63
+< R08: NADA 
+---
+>      CHPR R01, 1
+> R09: NADA 
+> R07: NADA 
+Exemplo8.08 ... 22c22
+47,48c47,48
+51c51
+ExemploErro1 ... COMPILATION ERROR!!!
+ Variable type differs from expression type.
+ExemploErro2 ... COMPILATION ERROR!!!
+ If expression is not boolean!
+9,10c9,11
+<      CRCT 1
+<      SOMA
+---
+>      CRVL 0, 0
+>      CRVL 0, 1
+>      CMMA

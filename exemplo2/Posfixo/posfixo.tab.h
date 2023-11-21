@@ -35,8 +35,8 @@
    especially those whose name start with YY_ or yy_.  They are
    private implementation details that can be changed or removed.  */
 
-#ifndef YY_YY_LEMEPA_TAB_H_INCLUDED
-# define YY_YY_LEMEPA_TAB_H_INCLUDED
+#ifndef YY_YY_POSFIXO_TAB_H_INCLUDED
+# define YY_YY_POSFIXO_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -54,44 +54,16 @@ extern int yydebug;
     YYEOF = 0,                     /* "end of file"  */
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
-    DOIS_PONTOS = 258,             /* DOIS_PONTOS  */
-    ROTULO = 259,                  /* ROTULO  */
-    INTEIRO = 260,                 /* INTEIRO  */
-    VIRGULA = 261,                 /* VIRGULA  */
-    INPP = 262,                    /* INPP  */
-    PARA = 263,                    /* PARA  */
-    SOMA = 264,                    /* SOMA  */
-    SUBT = 265,                    /* SUBT  */
-    MULT = 266,                    /* MULT  */
-    DIVI = 267,                    /* DIVI  */
-    INVR = 268,                    /* INVR  */
-    CONJ = 269,                    /* CONJ  */
-    DISJ = 270,                    /* DISJ  */
-    NEGA = 271,                    /* NEGA  */
-    CMME = 272,                    /* CMME  */
-    CMMA = 273,                    /* CMMA  */
-    CMIG = 274,                    /* CMIG  */
-    CMDG = 275,                    /* CMDG  */
-    CMEG = 276,                    /* CMEG  */
-    CMAG = 277,                    /* CMAG  */
-    NADA = 278,                    /* NADA  */
-    LEIT = 279,                    /* LEIT  */
-    IMPR = 280,                    /* IMPR  */
-    CRCT = 281,                    /* CRCT  */
-    AMEM = 282,                    /* AMEM  */
-    DMEM = 283,                    /* DMEM  */
-    ENPR = 284,                    /* ENPR  */
-    ENRT = 285,                    /* ENRT  */
-    DSVS = 286,                    /* DSVS  */
-    DSVF = 287,                    /* DSVF  */
-    CRVL = 288,                    /* CRVL  */
-    ARMZ = 289,                    /* ARMZ  */
-    CRVI = 290,                    /* CRVI  */
-    ARMI = 291,                    /* ARMI  */
-    CREN = 292,                    /* CREN  */
-    CHPR = 293,                    /* CHPR  */
-    RTPR = 294,                    /* RTPR  */
-    DSVR = 295                     /* DSVR  */
+    INT = 258,                     /* INT  */
+    BOOL = 259,                    /* BOOL  */
+    MAIS = 260,                    /* MAIS  */
+    MENOS = 261,                   /* MENOS  */
+    ASTERISCO = 262,               /* ASTERISCO  */
+    DIV = 263,                     /* DIV  */
+    ABRE_PARENTESES = 264,         /* ABRE_PARENTESES  */
+    FECHA_PARENTESES = 265,        /* FECHA_PARENTESES  */
+    OR = 266,                      /* OR  */
+    AND = 267                      /* AND  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -108,4 +80,4 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_LEMEPA_TAB_H_INCLUDED  */
+#endif /* !YY_YY_POSFIXO_TAB_H_INCLUDED  */
