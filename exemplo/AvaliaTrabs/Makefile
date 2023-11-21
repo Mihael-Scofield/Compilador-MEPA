@@ -13,7 +13,7 @@ all: compilador clean
 
 compilador: lex.yy.c compilador.tab.c compilador.o compilador.h ts.o io.o
 	@echo "Iniciando"
-	@igcc lex.yy.c compilador.tab.c compilador.o ts.o io.o -o compilador -ll -ly -lc
+	@gcc lex.yy.c compilador.tab.c compilador.o ts.o io.o -o compilador -ll -ly -lc
 
 lex.yy.c: compilador.l compilador.h ts.h io.h
 	@flex compilador.l

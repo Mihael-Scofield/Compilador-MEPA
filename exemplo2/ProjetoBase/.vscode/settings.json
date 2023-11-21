@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "tabela_simb.h": "c",
+        "stdbool.h": "c"
+    }
+}

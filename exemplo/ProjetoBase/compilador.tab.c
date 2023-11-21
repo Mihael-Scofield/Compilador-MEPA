@@ -67,11 +67,18 @@
 
 
 /* First part of user prologue.  */
-#line 2 "posfixo.y"
+#line 6 "compilador.y"
 
 #include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
+#include <string.h>
+#include "compilador.h"
 
-#line 75 "posfixo.tab.c"
+int num_vars;
+
+
+#line 82 "compilador.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -94,7 +101,7 @@
 #  endif
 # endif
 
-#include "posfixo.tab.h"
+#include "compilador.tab.h"
 /* Symbol kind.  */
 enum yysymbol_kind_t
 {
@@ -102,24 +109,35 @@ enum yysymbol_kind_t
   YYSYMBOL_YYEOF = 0,                      /* "end of file"  */
   YYSYMBOL_YYerror = 1,                    /* error  */
   YYSYMBOL_YYUNDEF = 2,                    /* "invalid token"  */
-  YYSYMBOL_INT = 3,                        /* INT  */
-  YYSYMBOL_BOOL = 4,                       /* BOOL  */
-  YYSYMBOL_MAIS = 5,                       /* MAIS  */
-  YYSYMBOL_MENOS = 6,                      /* MENOS  */
-  YYSYMBOL_ASTERISCO = 7,                  /* ASTERISCO  */
-  YYSYMBOL_DIV = 8,                        /* DIV  */
-  YYSYMBOL_ABRE_PARENTESES = 9,            /* ABRE_PARENTESES  */
-  YYSYMBOL_FECHA_PARENTESES = 10,          /* FECHA_PARENTESES  */
-  YYSYMBOL_OR = 11,                        /* OR  */
-  YYSYMBOL_AND = 12,                       /* AND  */
-  YYSYMBOL_YYACCEPT = 13,                  /* $accept  */
-  YYSYMBOL_geral = 14,                     /* geral  */
-  YYSYMBOL_expr = 15,                      /* expr  */
-  YYSYMBOL_bool_expr = 16,                 /* bool_expr  */
-  YYSYMBOL_termo = 17,                     /* termo  */
-  YYSYMBOL_bool_termo = 18,                /* bool_termo  */
-  YYSYMBOL_fator_int = 19,                 /* fator_int  */
-  YYSYMBOL_bool_fator = 20                 /* bool_fator  */
+  YYSYMBOL_PROGRAM = 3,                    /* PROGRAM  */
+  YYSYMBOL_ABRE_PARENTESES = 4,            /* ABRE_PARENTESES  */
+  YYSYMBOL_FECHA_PARENTESES = 5,           /* FECHA_PARENTESES  */
+  YYSYMBOL_VIRGULA = 6,                    /* VIRGULA  */
+  YYSYMBOL_PONTO_E_VIRGULA = 7,            /* PONTO_E_VIRGULA  */
+  YYSYMBOL_DOIS_PONTOS = 8,                /* DOIS_PONTOS  */
+  YYSYMBOL_PONTO = 9,                      /* PONTO  */
+  YYSYMBOL_T_BEGIN = 10,                   /* T_BEGIN  */
+  YYSYMBOL_T_END = 11,                     /* T_END  */
+  YYSYMBOL_VAR = 12,                       /* VAR  */
+  YYSYMBOL_IDENT = 13,                     /* IDENT  */
+  YYSYMBOL_ATRIBUICAO = 14,                /* ATRIBUICAO  */
+  YYSYMBOL_YYACCEPT = 15,                  /* $accept  */
+  YYSYMBOL_programa = 16,                  /* programa  */
+  YYSYMBOL_17_1 = 17,                      /* $@1  */
+  YYSYMBOL_bloco = 18,                     /* bloco  */
+  YYSYMBOL_19_2 = 19,                      /* $@2  */
+  YYSYMBOL_parte_declara_vars = 20,        /* parte_declara_vars  */
+  YYSYMBOL_var = 21,                       /* var  */
+  YYSYMBOL_22_3 = 22,                      /* $@3  */
+  YYSYMBOL_declara_vars = 23,              /* declara_vars  */
+  YYSYMBOL_declara_var = 24,               /* declara_var  */
+  YYSYMBOL_25_4 = 25,                      /* $@4  */
+  YYSYMBOL_26_5 = 26,                      /* $@5  */
+  YYSYMBOL_tipo = 27,                      /* tipo  */
+  YYSYMBOL_lista_id_var = 28,              /* lista_id_var  */
+  YYSYMBOL_lista_idents = 29,              /* lista_idents  */
+  YYSYMBOL_comando_composto = 30,          /* comando_composto  */
+  YYSYMBOL_comandos = 31                   /* comandos  */
 };
 typedef enum yysymbol_kind_t yysymbol_kind_t;
 
@@ -439,21 +457,21 @@ union yyalloc
 #endif /* !YYCOPY_NEEDED */
 
 /* YYFINAL -- State number of the termination state.  */
-#define YYFINAL  10
+#define YYFINAL  3
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   21
+#define YYLAST   24
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  13
+#define YYNTOKENS  15
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  8
+#define YYNNTS  17
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  15
+#define YYNRULES  21
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  23
+#define YYNSTATES  37
 
 /* YYMAXUTOK -- Last valid token kind.  */
-#define YYMAXUTOK   267
+#define YYMAXUTOK   269
 
 
 /* YYTRANSLATE(TOKEN-NUM) -- Symbol number corresponding to TOKEN-NUM
@@ -493,15 +511,16 @@ static const yytype_int8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
-       5,     6,     7,     8,     9,    10,    11,    12
+       5,     6,     7,     8,     9,    10,    11,    12,    13,    14
 };
 
 #if YYDEBUG
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    11,    11,    11,    13,    14,    15,    18,    19,    22,
-      23,    24,    27,    28,    31,    34
+       0,    23,    23,    23,    35,    34,    44,    48,    48,    49,
+      52,    53,    56,    59,    56,    64,    67,    69,    72,    73,
+      77,    79
 };
 #endif
 
@@ -517,10 +536,12 @@ static const char *yysymbol_name (yysymbol_kind_t yysymbol) YY_ATTRIBUTE_UNUSED;
    First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
 static const char *const yytname[] =
 {
-  "\"end of file\"", "error", "\"invalid token\"", "INT", "BOOL", "MAIS",
-  "MENOS", "ASTERISCO", "DIV", "ABRE_PARENTESES", "FECHA_PARENTESES", "OR",
-  "AND", "$accept", "geral", "expr", "bool_expr", "termo", "bool_termo",
-  "fator_int", "bool_fator", YY_NULLPTR
+  "\"end of file\"", "error", "\"invalid token\"", "PROGRAM",
+  "ABRE_PARENTESES", "FECHA_PARENTESES", "VIRGULA", "PONTO_E_VIRGULA",
+  "DOIS_PONTOS", "PONTO", "T_BEGIN", "T_END", "VAR", "IDENT", "ATRIBUICAO",
+  "$accept", "programa", "$@1", "bloco", "$@2", "parte_declara_vars",
+  "var", "$@3", "declara_vars", "declara_var", "$@4", "$@5", "tipo",
+  "lista_id_var", "lista_idents", "comando_composto", "comandos", YY_NULLPTR
 };
 
 static const char *
@@ -536,16 +557,16 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 static const yytype_int16 yytoknum[] =
 {
        0,   256,   257,   258,   259,   260,   261,   262,   263,   264,
-     265,   266,   267
+     265,   266,   267,   268,   269
 };
 #endif
 
-#define YYPACT_NINF (-8)
+#define YYPACT_NINF (-10)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
 
-#define YYTABLE_NINF (-1)
+#define YYTABLE_NINF (-13)
 
 #define yytable_value_is_error(Yyn) \
   0
@@ -554,9 +575,10 @@ static const yytype_int16 yytoknum[] =
      STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-      -3,    -8,    -8,     2,    -2,     3,    -1,    -7,    -8,    -8,
-      -8,     7,     7,     9,     7,     7,     9,    -1,    -1,    -7,
-      -8,    -8,    -8
+     -10,     1,     2,   -10,    -7,     3,    -5,   -10,    -2,     4,
+      -4,     0,   -10,     5,   -10,   -10,     6,   -10,     7,   -10,
+     -10,   -10,    -1,   -10,     8,     9,   -10,   -10,    -6,   -10,
+      10,    11,   -10,   -10,   -10,    12,   -10
 };
 
   /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -564,21 +586,24 @@ static const yytype_int8 yypact[] =
      means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
-       0,    14,    15,     0,     2,     3,     6,     8,    11,    13,
-       1,     0,     0,     0,     0,     0,     0,     4,     5,     7,
-       9,    10,    12
+       2,     0,     0,     1,     0,     0,     0,    19,     0,     0,
+       0,     7,    18,     0,     4,     6,     0,     3,     0,    12,
+      21,     5,     8,    11,     0,     0,    10,    17,     0,    20,
+       0,     0,    16,    15,    13,     0,    14
 };
 
   /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-      -8,    -8,    -8,    -8,     0,     4,    -6,     5
+     -10,   -10,   -10,   -10,   -10,   -10,   -10,   -10,   -10,    -9,
+     -10,   -10,   -10,   -10,   -10,   -10,   -10
 };
 
   /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-       0,     3,     4,     5,     6,     7,     8,     9
+       0,     1,     2,    13,    18,    14,    15,    16,    22,    23,
+      24,    35,    34,    28,     8,    21,    25
 };
 
   /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -586,39 +611,42 @@ static const yytype_int8 yydefgoto[] =
      number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-       1,     2,    10,    11,    12,    16,    14,    15,    20,    21,
-       1,    17,    18,     2,    13,     0,     0,    19,     0,     0,
-       0,    22
+      30,     3,    31,     9,    10,     4,     5,     6,     7,    12,
+      -9,    11,   -12,    26,    17,     0,     0,    20,    19,    36,
+      29,    27,     0,    32,    33
 };
 
 static const yytype_int8 yycheck[] =
 {
-       3,     4,     0,     5,     6,    12,     7,     8,    14,    15,
-       3,    11,    12,     4,    11,    -1,    -1,    13,    -1,    -1,
-      -1,    16
+       6,     0,     8,     5,     6,     3,    13,     4,    13,    13,
+      10,     7,    13,    22,     9,    -1,    -1,    10,    12,     7,
+      11,    13,    -1,    13,    13
 };
 
   /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
      symbol of state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,     3,     4,    14,    15,    16,    17,    18,    19,    20,
-       0,     5,     6,    11,     7,     8,    12,    17,    17,    18,
-      19,    19,    20
+       0,    16,    17,     0,     3,    13,     4,    13,    29,     5,
+       6,     7,    13,    18,    20,    21,    22,     9,    19,    12,
+      10,    30,    23,    24,    25,    31,    24,    13,    28,    11,
+       6,     8,    13,    13,    27,    26,     7
 };
 
   /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
 static const yytype_int8 yyr1[] =
 {
-       0,    13,    14,    14,    15,    15,    15,    16,    16,    17,
-      17,    17,    18,    18,    19,    20
+       0,    15,    17,    16,    19,    18,    20,    22,    21,    21,
+      23,    23,    25,    26,    24,    27,    28,    28,    29,    29,
+      30,    31
 };
 
   /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
 static const yytype_int8 yyr2[] =
 {
-       0,     2,     1,     1,     3,     3,     1,     3,     1,     3,
-       3,     1,     3,     1,     1,     1
+       0,     2,     0,     9,     0,     3,     1,     0,     3,     0,
+       2,     1,     0,     0,     6,     1,     3,     1,     3,     1,
+       3,     0
 };
 
 
@@ -1085,56 +1113,62 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-  case 4: /* expr: expr MAIS termo  */
-#line 13 "posfixo.y"
-                             {printf ("+"); }
-#line 1092 "posfixo.tab.c"
+  case 2: /* $@1: %empty  */
+#line 23 "compilador.y"
+             {
+             geraCodigo (NULL, "INPP");
+             }
+#line 1122 "compilador.tab.c"
     break;
 
-  case 5: /* expr: expr MENOS termo  */
-#line 14 "posfixo.y"
-                              {printf ("-"); }
-#line 1098 "posfixo.tab.c"
+  case 3: /* programa: $@1 PROGRAM IDENT ABRE_PARENTESES lista_idents FECHA_PARENTESES PONTO_E_VIRGULA bloco PONTO  */
+#line 28 "compilador.y"
+                         {
+             geraCodigo (NULL, "PARA");
+             }
+#line 1130 "compilador.tab.c"
     break;
 
-  case 7: /* bool_expr: bool_expr OR bool_termo  */
-#line 18 "posfixo.y"
-                                     {printf ("∨"); }
-#line 1104 "posfixo.tab.c"
+  case 4: /* $@2: %empty  */
+#line 35 "compilador.y"
+              {
+              }
+#line 1137 "compilador.tab.c"
     break;
 
-  case 9: /* termo: termo ASTERISCO fator_int  */
-#line 22 "posfixo.y"
-                                        {printf ("*"); }
-#line 1110 "posfixo.tab.c"
+  case 7: /* $@3: %empty  */
+#line 48 "compilador.y"
+              { }
+#line 1143 "compilador.tab.c"
     break;
 
-  case 10: /* termo: termo DIV fator_int  */
-#line 23 "posfixo.y"
-                                  {printf ("/"); }
-#line 1116 "posfixo.tab.c"
+  case 12: /* $@4: %empty  */
+#line 56 "compilador.y"
+              { }
+#line 1149 "compilador.tab.c"
     break;
 
-  case 12: /* bool_termo: bool_termo AND bool_fator  */
-#line 27 "posfixo.y"
-                                       {printf ("∧"); }
-#line 1122 "posfixo.tab.c"
+  case 13: /* $@5: %empty  */
+#line 59 "compilador.y"
+              { /* AMEM */
+              }
+#line 1156 "compilador.tab.c"
     break;
 
-  case 14: /* fator_int: INT  */
-#line 31 "posfixo.y"
-                     {printf ("A"); }
-#line 1128 "posfixo.tab.c"
+  case 16: /* lista_id_var: lista_id_var VIRGULA IDENT  */
+#line 68 "compilador.y"
+              { /* insere �ltima vars na tabela de s�mbolos */ }
+#line 1162 "compilador.tab.c"
     break;
 
-  case 15: /* bool_fator: BOOL  */
-#line 34 "posfixo.y"
-                       {printf ("B"); }
-#line 1134 "posfixo.tab.c"
+  case 17: /* lista_id_var: IDENT  */
+#line 69 "compilador.y"
+                    { /* insere vars na tabela de s�mbolos */}
+#line 1168 "compilador.tab.c"
     break;
 
 
-#line 1138 "posfixo.tab.c"
+#line 1172 "compilador.tab.c"
 
       default: break;
     }
@@ -1328,11 +1362,31 @@ yyreturn:
   return yyresult;
 }
 
-#line 38 "posfixo.y"
+#line 83 "compilador.y"
 
 
-main (int argc, char** argv) {
+int main (int argc, char** argv) {
+   FILE* fp;
+   extern FILE* yyin;
+
+   if (argc<2 || argc>2) {
+         printf("usage compilador <arq>a %d\n", argc);
+         return(-1);
+      }
+
+   fp=fopen (argv[1], "r");
+   if (fp == NULL) {
+      printf("usage compilador <arq>b\n");
+      return(-1);
+   }
+
+
+/* -------------------------------------------------------------------
+ *  Inicia a Tabela de S�mbolos
+ * ------------------------------------------------------------------- */
+
+   yyin=fp;
    yyparse();
-   printf("\n");
-}
 
+   return 0;
+}

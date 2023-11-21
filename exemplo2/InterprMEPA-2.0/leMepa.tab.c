@@ -67,11 +67,30 @@
 
 
 /* First part of user prologue.  */
-#line 2 "posfixo.y"
+#line 14 "leMepa.y"
 
 #include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
+#include <string.h>
+#include "executaMepa.h"
 
-#line 75 "posfixo.tab.c"
+#include "leMepa.h"
+
+
+char rotInstr[TAM_TOKEN];
+char rotulo[TAM_TOKEN];
+int  p1_int;
+int  p2_int;
+int  p3_int;
+char p1_rot[TAM_TOKEN];
+int  inteiro;
+instrucao_mepa instr;
+
+  int yylex();
+  void yyerror(char *s);
+
+#line 94 "leMepa.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -94,7 +113,7 @@
 #  endif
 # endif
 
-#include "posfixo.tab.h"
+#include "leMepa.tab.h"
 /* Symbol kind.  */
 enum yysymbol_kind_t
 {
@@ -102,24 +121,59 @@ enum yysymbol_kind_t
   YYSYMBOL_YYEOF = 0,                      /* "end of file"  */
   YYSYMBOL_YYerror = 1,                    /* error  */
   YYSYMBOL_YYUNDEF = 2,                    /* "invalid token"  */
-  YYSYMBOL_INT = 3,                        /* INT  */
-  YYSYMBOL_BOOL = 4,                       /* BOOL  */
-  YYSYMBOL_MAIS = 5,                       /* MAIS  */
-  YYSYMBOL_MENOS = 6,                      /* MENOS  */
-  YYSYMBOL_ASTERISCO = 7,                  /* ASTERISCO  */
-  YYSYMBOL_DIV = 8,                        /* DIV  */
-  YYSYMBOL_ABRE_PARENTESES = 9,            /* ABRE_PARENTESES  */
-  YYSYMBOL_FECHA_PARENTESES = 10,          /* FECHA_PARENTESES  */
-  YYSYMBOL_OR = 11,                        /* OR  */
-  YYSYMBOL_AND = 12,                       /* AND  */
-  YYSYMBOL_YYACCEPT = 13,                  /* $accept  */
-  YYSYMBOL_geral = 14,                     /* geral  */
-  YYSYMBOL_expr = 15,                      /* expr  */
-  YYSYMBOL_bool_expr = 16,                 /* bool_expr  */
-  YYSYMBOL_termo = 17,                     /* termo  */
-  YYSYMBOL_bool_termo = 18,                /* bool_termo  */
-  YYSYMBOL_fator_int = 19,                 /* fator_int  */
-  YYSYMBOL_bool_fator = 20                 /* bool_fator  */
+  YYSYMBOL_DOIS_PONTOS = 3,                /* DOIS_PONTOS  */
+  YYSYMBOL_ROTULO = 4,                     /* ROTULO  */
+  YYSYMBOL_INTEIRO = 5,                    /* INTEIRO  */
+  YYSYMBOL_VIRGULA = 6,                    /* VIRGULA  */
+  YYSYMBOL_INPP = 7,                       /* INPP  */
+  YYSYMBOL_PARA = 8,                       /* PARA  */
+  YYSYMBOL_SOMA = 9,                       /* SOMA  */
+  YYSYMBOL_SUBT = 10,                      /* SUBT  */
+  YYSYMBOL_MULT = 11,                      /* MULT  */
+  YYSYMBOL_DIVI = 12,                      /* DIVI  */
+  YYSYMBOL_INVR = 13,                      /* INVR  */
+  YYSYMBOL_CONJ = 14,                      /* CONJ  */
+  YYSYMBOL_DISJ = 15,                      /* DISJ  */
+  YYSYMBOL_NEGA = 16,                      /* NEGA  */
+  YYSYMBOL_CMME = 17,                      /* CMME  */
+  YYSYMBOL_CMMA = 18,                      /* CMMA  */
+  YYSYMBOL_CMIG = 19,                      /* CMIG  */
+  YYSYMBOL_CMDG = 20,                      /* CMDG  */
+  YYSYMBOL_CMEG = 21,                      /* CMEG  */
+  YYSYMBOL_CMAG = 22,                      /* CMAG  */
+  YYSYMBOL_NADA = 23,                      /* NADA  */
+  YYSYMBOL_LEIT = 24,                      /* LEIT  */
+  YYSYMBOL_IMPR = 25,                      /* IMPR  */
+  YYSYMBOL_CRCT = 26,                      /* CRCT  */
+  YYSYMBOL_AMEM = 27,                      /* AMEM  */
+  YYSYMBOL_DMEM = 28,                      /* DMEM  */
+  YYSYMBOL_ENPR = 29,                      /* ENPR  */
+  YYSYMBOL_ENRT = 30,                      /* ENRT  */
+  YYSYMBOL_DSVS = 31,                      /* DSVS  */
+  YYSYMBOL_DSVF = 32,                      /* DSVF  */
+  YYSYMBOL_CRVL = 33,                      /* CRVL  */
+  YYSYMBOL_ARMZ = 34,                      /* ARMZ  */
+  YYSYMBOL_CRVI = 35,                      /* CRVI  */
+  YYSYMBOL_ARMI = 36,                      /* ARMI  */
+  YYSYMBOL_CREN = 37,                      /* CREN  */
+  YYSYMBOL_CHPR = 38,                      /* CHPR  */
+  YYSYMBOL_RTPR = 39,                      /* RTPR  */
+  YYSYMBOL_DSVR = 40,                      /* DSVR  */
+  YYSYMBOL_YYACCEPT = 41,                  /* $accept  */
+  YYSYMBOL_linhas = 42,                    /* linhas  */
+  YYSYMBOL_linha = 43,                     /* linha  */
+  YYSYMBOL_rot = 44,                       /* rot  */
+  YYSYMBOL_45_1 = 45,                      /* $@1  */
+  YYSYMBOL_virgula = 46,                   /* virgula  */
+  YYSYMBOL_comando = 47,                   /* comando  */
+  YYSYMBOL_cmd_sem_param = 48,             /* cmd_sem_param  */
+  YYSYMBOL_cmd_um_param_int = 49,          /* cmd_um_param_int  */
+  YYSYMBOL_cmd_um_param_rot = 50,          /* cmd_um_param_rot  */
+  YYSYMBOL_cmd_dois_param_int = 51,        /* cmd_dois_param_int  */
+  YYSYMBOL_param1_int = 52,                /* param1_int  */
+  YYSYMBOL_param2_int = 53,                /* param2_int  */
+  YYSYMBOL_param3_int = 54,                /* param3_int  */
+  YYSYMBOL_param1_rot = 55                 /* param1_rot  */
 };
 typedef enum yysymbol_kind_t yysymbol_kind_t;
 
@@ -439,21 +493,21 @@ union yyalloc
 #endif /* !YYCOPY_NEEDED */
 
 /* YYFINAL -- State number of the termination state.  */
-#define YYFINAL  10
+#define YYFINAL  6
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   21
+#define YYLAST   51
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  13
+#define YYNTOKENS  41
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  8
+#define YYNNTS  15
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  15
+#define YYNRULES  51
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  23
+#define YYNSTATES  66
 
 /* YYMAXUTOK -- Last valid token kind.  */
-#define YYMAXUTOK   267
+#define YYMAXUTOK   295
 
 
 /* YYTRANSLATE(TOKEN-NUM) -- Symbol number corresponding to TOKEN-NUM
@@ -493,15 +547,22 @@ static const yytype_int8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
-       5,     6,     7,     8,     9,    10,    11,    12
+       5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
+      15,    16,    17,    18,    19,    20,    21,    22,    23,    24,
+      25,    26,    27,    28,    29,    30,    31,    32,    33,    34,
+      35,    36,    37,    38,    39,    40
 };
 
 #if YYDEBUG
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    11,    11,    11,    13,    14,    15,    18,    19,    22,
-      23,    24,    27,    28,    31,    34
+       0,    50,    50,    51,    54,    59,    59,    60,    64,    65,
+      70,    73,    76,    79,    82,    84,    88,    88,    88,    88,
+      88,    88,    88,    88,    88,    89,    89,    89,    89,    89,
+      89,    89,    89,    89,    90,    94,    94,    94,    94,    98,
+      98,   102,   102,   102,   102,   102,   102,   102,   107,   108,
+     109,   110
 };
 #endif
 
@@ -517,10 +578,15 @@ static const char *yysymbol_name (yysymbol_kind_t yysymbol) YY_ATTRIBUTE_UNUSED;
    First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
 static const char *const yytname[] =
 {
-  "\"end of file\"", "error", "\"invalid token\"", "INT", "BOOL", "MAIS",
-  "MENOS", "ASTERISCO", "DIV", "ABRE_PARENTESES", "FECHA_PARENTESES", "OR",
-  "AND", "$accept", "geral", "expr", "bool_expr", "termo", "bool_termo",
-  "fator_int", "bool_fator", YY_NULLPTR
+  "\"end of file\"", "error", "\"invalid token\"", "DOIS_PONTOS",
+  "ROTULO", "INTEIRO", "VIRGULA", "INPP", "PARA", "SOMA", "SUBT", "MULT",
+  "DIVI", "INVR", "CONJ", "DISJ", "NEGA", "CMME", "CMMA", "CMIG", "CMDG",
+  "CMEG", "CMAG", "NADA", "LEIT", "IMPR", "CRCT", "AMEM", "DMEM", "ENPR",
+  "ENRT", "DSVS", "DSVF", "CRVL", "ARMZ", "CRVI", "ARMI", "CREN", "CHPR",
+  "RTPR", "DSVR", "$accept", "linhas", "linha", "rot", "$@1", "virgula",
+  "comando", "cmd_sem_param", "cmd_um_param_int", "cmd_um_param_rot",
+  "cmd_dois_param_int", "param1_int", "param2_int", "param3_int",
+  "param1_rot", YY_NULLPTR
 };
 
 static const char *
@@ -536,11 +602,14 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 static const yytype_int16 yytoknum[] =
 {
        0,   256,   257,   258,   259,   260,   261,   262,   263,   264,
-     265,   266,   267
+     265,   266,   267,   268,   269,   270,   271,   272,   273,   274,
+     275,   276,   277,   278,   279,   280,   281,   282,   283,   284,
+     285,   286,   287,   288,   289,   290,   291,   292,   293,   294,
+     295
 };
 #endif
 
-#define YYPACT_NINF (-8)
+#define YYPACT_NINF (-17)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -554,9 +623,13 @@ static const yytype_int16 yytoknum[] =
      STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-      -3,    -8,    -8,     2,    -2,     3,    -1,    -7,    -8,    -8,
-      -8,     7,     7,     9,     7,     7,     9,    -1,    -1,    -7,
-      -8,    -8,    -8
+      33,   -17,    35,   -17,    -7,    38,   -17,   -17,   -17,   -17,
+     -17,   -17,   -17,   -17,   -17,   -17,   -17,   -17,   -17,   -17,
+     -17,   -17,   -17,   -17,   -17,   -17,   -17,   -17,   -17,   -17,
+     -17,   -17,   -17,   -17,   -17,   -17,   -17,   -17,   -17,    40,
+     -17,    40,   -17,   -17,    41,    40,    41,   -17,   -17,    42,
+      42,   -17,   -17,   -17,    42,   -17,    44,    44,    44,   -17,
+     -17,    42,   -17,    45,   -17,   -17
 };
 
   /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -564,21 +637,27 @@ static const yytype_int8 yypact[] =
      means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
-       0,    14,    15,     0,     2,     3,     6,     8,    11,    13,
-       1,     0,     0,     0,     0,     0,     0,     4,     5,     7,
-       9,    10,    12
+       7,     5,     7,     3,     0,     0,     1,     2,    16,    17,
+      18,    19,    20,    21,    22,    23,    24,    25,    26,    27,
+      28,    29,    30,    31,    32,    33,    34,    35,    36,    37,
+      38,    46,    39,    40,    41,    42,    43,    44,    45,     0,
+      47,     0,     4,    10,     0,     0,     0,     6,    51,     9,
+       9,    48,    11,    12,     9,     8,     0,     0,     0,    49,
+      14,     9,    13,     0,    50,    15
 };
 
   /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-      -8,    -8,    -8,    -8,     0,     4,    -6,     5
+     -17,   -17,    49,   -17,   -17,   -16,   -17,   -17,   -17,   -17,
+     -17,     1,   -15,   -17,    -5
 };
 
   /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-       0,     3,     4,     5,     6,     7,     8,     9
+       0,     2,     3,     4,     5,    56,    42,    43,    44,    45,
+      46,    52,    60,    65,    49
 };
 
   /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -586,39 +665,57 @@ static const yytype_int8 yydefgoto[] =
      number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-       1,     2,    10,    11,    12,    16,    14,    15,    20,    21,
-       1,    17,    18,     2,    13,     0,     0,    19,     0,     0,
-       0,    22
+       8,     9,    10,    11,    12,    13,    14,    15,    16,    17,
+      18,    19,    20,    21,    22,    23,    24,    25,    26,    27,
+      28,    29,    30,    31,    32,    33,    34,    35,    36,    37,
+      38,    39,    40,    41,    57,     6,    50,     1,    58,     1,
+      53,    47,    61,    62,    48,    63,    51,    54,    55,    59,
+      64,     7
 };
 
 static const yytype_int8 yycheck[] =
 {
-       3,     4,     0,     5,     6,    12,     7,     8,    14,    15,
-       3,    11,    12,     4,    11,    -1,    -1,    13,    -1,    -1,
-      -1,    16
+       7,     8,     9,    10,    11,    12,    13,    14,    15,    16,
+      17,    18,    19,    20,    21,    22,    23,    24,    25,    26,
+      27,    28,    29,    30,    31,    32,    33,    34,    35,    36,
+      37,    38,    39,    40,    50,     0,    41,     4,    54,     4,
+      45,     3,    57,    58,     4,    61,     5,    46,     6,     5,
+       5,     2
 };
 
   /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
      symbol of state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,     3,     4,    14,    15,    16,    17,    18,    19,    20,
-       0,     5,     6,    11,     7,     8,    12,    17,    17,    18,
-      19,    19,    20
+       0,     4,    42,    43,    44,    45,     0,    43,     7,     8,
+       9,    10,    11,    12,    13,    14,    15,    16,    17,    18,
+      19,    20,    21,    22,    23,    24,    25,    26,    27,    28,
+      29,    30,    31,    32,    33,    34,    35,    36,    37,    38,
+      39,    40,    47,    48,    49,    50,    51,     3,     4,    55,
+      55,     5,    52,    55,    52,     6,    46,    46,    46,     5,
+      53,    53,    53,    46,     5,    54
 };
 
   /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
 static const yytype_int8 yyr1[] =
 {
-       0,    13,    14,    14,    15,    15,    15,    16,    16,    17,
-      17,    17,    18,    18,    19,    20
+       0,    41,    42,    42,    43,    45,    44,    44,    46,    46,
+      47,    47,    47,    47,    47,    47,    48,    48,    48,    48,
+      48,    48,    48,    48,    48,    48,    48,    48,    48,    48,
+      48,    48,    48,    48,    48,    49,    49,    49,    49,    50,
+      50,    51,    51,    51,    51,    51,    51,    51,    52,    53,
+      54,    55
 };
 
   /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
 static const yytype_int8 yyr2[] =
 {
-       0,     2,     1,     1,     3,     3,     1,     3,     1,     3,
-       3,     1,     3,     1,     1,     1
+       0,     2,     2,     1,     2,     0,     3,     0,     1,     0,
+       1,     2,     2,     4,     4,     6,     1,     1,     1,     1,
+       1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+       1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+       1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+       1,     1
 };
 
 
@@ -1085,56 +1182,80 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-  case 4: /* expr: expr MAIS termo  */
-#line 13 "posfixo.y"
-                             {printf ("+"); }
-#line 1092 "posfixo.tab.c"
+  case 5: /* $@1: %empty  */
+#line 59 "leMepa.y"
+             { strcpy(rotInstr,rotulo); }
+#line 1189 "leMepa.tab.c"
     break;
 
-  case 5: /* expr: expr MENOS termo  */
-#line 14 "posfixo.y"
-                              {printf ("-"); }
-#line 1098 "posfixo.tab.c"
+  case 7: /* rot: %empty  */
+#line 60 "leMepa.y"
+             { strcpy(rotInstr,""); }
+#line 1195 "leMepa.tab.c"
     break;
 
-  case 7: /* bool_expr: bool_expr OR bool_termo  */
-#line 18 "posfixo.y"
-                                     {printf ("âˆ¨"); }
-#line 1104 "posfixo.tab.c"
+  case 10: /* comando: cmd_sem_param  */
+#line 71 "leMepa.y"
+               {insereInstr_MV_mepa(rotInstr,instr, 0,0,0,0,"");}
+#line 1201 "leMepa.tab.c"
     break;
 
-  case 9: /* termo: termo ASTERISCO fator_int  */
-#line 22 "posfixo.y"
-                                        {printf ("*"); }
-#line 1110 "posfixo.tab.c"
+  case 11: /* comando: cmd_um_param_int param1_int  */
+#line 74 "leMepa.y"
+               {insereInstr_MV_mepa(rotInstr,instr,p1_int,0,0,0,"");}
+#line 1207 "leMepa.tab.c"
     break;
 
-  case 10: /* termo: termo DIV fator_int  */
-#line 23 "posfixo.y"
-                                  {printf ("/"); }
-#line 1116 "posfixo.tab.c"
+  case 12: /* comando: cmd_um_param_rot param1_rot  */
+#line 77 "leMepa.y"
+               {insereInstr_MV_mepa(rotInstr,instr,0,0,0,0,p1_rot);}
+#line 1213 "leMepa.tab.c"
     break;
 
-  case 12: /* bool_termo: bool_termo AND bool_fator  */
-#line 27 "posfixo.y"
-                                       {printf ("âˆ§"); }
-#line 1122 "posfixo.tab.c"
+  case 13: /* comando: cmd_dois_param_int param1_int virgula param2_int  */
+#line 80 "leMepa.y"
+               {insereInstr_MV_mepa(rotInstr,instr,p1_int,p2_int,0,0,"");}
+#line 1219 "leMepa.tab.c"
     break;
 
-  case 14: /* fator_int: INT  */
-#line 31 "posfixo.y"
-                     {printf ("A"); }
-#line 1128 "posfixo.tab.c"
+  case 14: /* comando: CHPR param1_rot virgula param2_int  */
+#line 83 "leMepa.y"
+               {insereInstr_MV_mepa(rotInstr,instr,0,p2_int,0,0,p1_rot);}
+#line 1225 "leMepa.tab.c"
     break;
 
-  case 15: /* bool_fator: BOOL  */
-#line 34 "posfixo.y"
-                       {printf ("B"); }
-#line 1134 "posfixo.tab.c"
+  case 15: /* comando: DSVR param1_rot virgula param2_int virgula param3_int  */
+#line 85 "leMepa.y"
+               {insereInstr_MV_mepa(rotInstr,instr,0,p2_int,p3_int,0,p1_rot);}
+#line 1231 "leMepa.tab.c"
+    break;
+
+  case 48: /* param1_int: INTEIRO  */
+#line 107 "leMepa.y"
+                    { p1_int = inteiro;}
+#line 1237 "leMepa.tab.c"
+    break;
+
+  case 49: /* param2_int: INTEIRO  */
+#line 108 "leMepa.y"
+                    { p2_int = inteiro;}
+#line 1243 "leMepa.tab.c"
+    break;
+
+  case 50: /* param3_int: INTEIRO  */
+#line 109 "leMepa.y"
+                    { p3_int = inteiro;}
+#line 1249 "leMepa.tab.c"
+    break;
+
+  case 51: /* param1_rot: ROTULO  */
+#line 110 "leMepa.y"
+                   {strncpy(p1_rot, rotulo, TAM_TOKEN);}
+#line 1255 "leMepa.tab.c"
     break;
 
 
-#line 1138 "posfixo.tab.c"
+#line 1259 "leMepa.tab.c"
 
       default: break;
     }
@@ -1328,11 +1449,38 @@ yyreturn:
   return yyresult;
 }
 
-#line 38 "posfixo.y"
+#line 112 "leMepa.y"
 
 
-main (int argc, char** argv) {
-   yyparse();
-   printf("\n");
+/* -------------------------------------------------------------------
+ *  le programa indicado em plc->fp o coloca no vetor de instruções da
+ *  máquina virtual mepa (variável global "mv_mepa_I" *
+ * ------------------------------------------------------------------- */
+void leComandosMepa(params_linha_comando *plc) {
+  extern FILE* yyin;
+  
+  yyin = plc->fp_in;
+  yyparse();
 }
 
+/* -------------------------------------------------------------------
+ *  Programa Principal
+ * ------------------------------------------------------------------- */
+int main (int argc, char** argv) {
+  int i;
+  params_linha_comando *plc;
+
+  // ----------------
+  plc = le_params_linha_comando(argc, argv);
+  imprime_params_linha_comando (plc);
+  
+  // ----------------
+  inicia_MV_mepa ();
+
+
+  // le programa indicado e o coloca na mv_mepa
+  leComandosMepa(plc);
+  relocaDesvios_MV_mepa();
+  
+  executaMepa(plc);
+ }

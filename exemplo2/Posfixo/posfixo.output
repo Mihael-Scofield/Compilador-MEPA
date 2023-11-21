@@ -15,14 +15,14 @@ Gramática
     4     | expr MENOS termo
     5     | termo
 
-    6 bool_expr: bool_expr AND bool_termo
+    6 bool_expr: bool_expr OR bool_termo
     7          | bool_termo
 
     8 termo: termo ASTERISCO fator_int
     9      | termo DIV fator_int
    10      | fator_int
 
-   11 bool_termo: bool_termo OR bool_fator
+   11 bool_termo: bool_termo AND bool_fator
    12           | bool_fator
 
    13 fator_int: INT
@@ -42,8 +42,8 @@ Terminais, com as regras onde eles aparecem
     DIV (263) 9
     ABRE_PARENTESES (264)
     FECHA_PARENTESES (265)
-    OR (266) 11
-    AND (267) 6
+    OR (266) 6
+    AND (267) 11
 
 
 Não terminais com as regras onde eles aparecem
@@ -125,9 +125,9 @@ Estado 4
 Estado 5
 
     2 geral: bool_expr •
-    6 bool_expr: bool_expr • AND bool_termo
+    6 bool_expr: bool_expr • OR bool_termo
 
-    AND  deslocar, e ir ao estado 13
+    OR  deslocar, e ir ao estado 13
 
     $padrão  reduzir usando a regra 2 (geral)
 
@@ -147,9 +147,9 @@ Estado 6
 Estado 7
 
     7 bool_expr: bool_termo •
-   11 bool_termo: bool_termo • OR bool_fator
+   11 bool_termo: bool_termo • AND bool_fator
 
-    OR  deslocar, e ir ao estado 16
+    AND  deslocar, e ir ao estado 16
 
     $padrão  reduzir usando a regra 7 (bool_expr)
 
@@ -197,7 +197,7 @@ Estado 12
 
 Estado 13
 
-    6 bool_expr: bool_expr AND • bool_termo
+    6 bool_expr: bool_expr OR • bool_termo
 
     BOOL  deslocar, e ir ao estado 2
 
@@ -225,7 +225,7 @@ Estado 15
 
 Estado 16
 
-   11 bool_termo: bool_termo OR • bool_fator
+   11 bool_termo: bool_termo AND • bool_fator
 
     BOOL  deslocar, e ir ao estado 2
 
@@ -258,10 +258,10 @@ Estado 18
 
 Estado 19
 
-    6 bool_expr: bool_expr AND bool_termo •
-   11 bool_termo: bool_termo • OR bool_fator
+    6 bool_expr: bool_expr OR bool_termo •
+   11 bool_termo: bool_termo • AND bool_fator
 
-    OR  deslocar, e ir ao estado 16
+    AND  deslocar, e ir ao estado 16
 
     $padrão  reduzir usando a regra 6 (bool_expr)
 
@@ -282,6 +282,6 @@ Estado 21
 
 Estado 22
 
-   11 bool_termo: bool_termo OR bool_fator •
+   11 bool_termo: bool_termo AND bool_fator •
 
     $padrão  reduzir usando a regra 11 (bool_termo)
