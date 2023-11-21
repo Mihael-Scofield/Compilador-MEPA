@@ -1,0 +1,95 @@
+tabela_simbolos_init
+Tabela de Simbolos: (topo:0)
+program     # program 
+ident      # exemplo75 
+abre_parenteses      # ( 
+ident      # input 
+tabela_simbolos_push: token input e 1 addrs 0x7ffe07892da8.
+Tabela de Simbolos: (topo:1)
+0 - Ident [input], nv_lex 0, deslocamento 0, 
+virgula      # , 
+ident      # output 
+tabela_simbolos_push: token output e 2 addrs 0x7ffe07892da8.
+Tabela de Simbolos: (topo:2)
+0 - Ident [input], nv_lex 0, deslocamento 0, 
+1 - Ident [output], nv_lex 0, deslocamento 1, 
+fecha_parenteses     # ) 
+pt_virgula      # ; 
+var      # var 
+ident      # m 
+tabela_simbolos_push: token m e 3 addrs 0x7ffe07892da8.
+Tabela de Simbolos: (topo:3)
+0 - Ident [input], nv_lex 0, deslocamento 0, 
+1 - Ident [output], nv_lex 0, deslocamento 1, 
+2 - Ident [m], CAT [VS], nv_lex 0, deslocamento 0, 
+virgula      # , 
+ident      # n 
+tabela_simbolos_push: token n e 4 addrs 0x7ffe07892da8.
+Tabela de Simbolos: (topo:4)
+0 - Ident [input], nv_lex 0, deslocamento 0, 
+1 - Ident [output], nv_lex 0, deslocamento 1, 
+2 - Ident [m], CAT [VS], nv_lex 0, deslocamento 0, 
+3 - Ident [n], CAT [VS], nv_lex 0, deslocamento 1, 
+virgula      # , 
+ident      # o 
+tabela_simbolos_push: token o e 5 addrs 0x7ffe07892da8.
+Tabela de Simbolos: (topo:5)
+0 - Ident [input], nv_lex 0, deslocamento 0, 
+1 - Ident [output], nv_lex 0, deslocamento 1, 
+2 - Ident [m], CAT [VS], nv_lex 0, deslocamento 0, 
+3 - Ident [n], CAT [VS], nv_lex 0, deslocamento 1, 
+4 - Ident [o], CAT [VS], nv_lex 0, deslocamento 2, 
+virgula      # , 
+ident      # p 
+tabela_simbolos_push: token p e 6 addrs 0x7ffe07892da8.
+Tabela de Simbolos: (topo:6)
+0 - Ident [input], nv_lex 0, deslocamento 0, 
+1 - Ident [output], nv_lex 0, deslocamento 1, 
+2 - Ident [m], CAT [VS], nv_lex 0, deslocamento 0, 
+3 - Ident [n], CAT [VS], nv_lex 0, deslocamento 1, 
+4 - Ident [o], CAT [VS], nv_lex 0, deslocamento 2, 
+5 - Ident [p], CAT [VS], nv_lex 0, deslocamento 3, 
+virgula      # , 
+ident      # q 
+tabela_simbolos_push: token q e 7 addrs 0x7ffe07892da8.
+Tabela de Simbolos: (topo:7)
+0 - Ident [input], nv_lex 0, deslocamento 0, 
+1 - Ident [output], nv_lex 0, deslocamento 1, 
+2 - Ident [m], CAT [VS], nv_lex 0, deslocamento 0, 
+3 - Ident [n], CAT [VS], nv_lex 0, deslocamento 1, 
+4 - Ident [o], CAT [VS], nv_lex 0, deslocamento 2, 
+5 - Ident [p], CAT [VS], nv_lex 0, deslocamento 3, 
+6 - Ident [q], CAT [VS], nv_lex 0, deslocamento 4, 
+virgula      # , 
+ident      # r 
+tabela_simbolos_push: token r e 8 addrs 0x7ffe07892da8.
+Tabela de Simbolos: (topo:8)
+0 - Ident [input], nv_lex 0, deslocamento 0, 
+1 - Ident [output], nv_lex 0, deslocamento 1, 
+2 - Ident [m], CAT [VS], nv_lex 0, deslocamento 0, 
+3 - Ident [n], CAT [VS], nv_lex 0, deslocamento 1, 
+4 - Ident [o], CAT [VS], nv_lex 0, deslocamento 2, 
+5 - Ident [p], CAT [VS], nv_lex 0, deslocamento 3, 
+6 - Ident [q], CAT [VS], nv_lex 0, deslocamento 4, 
+7 - Ident [r], CAT [VS], nv_lex 0, deslocamento 5, 
+dois pontos     # : 
+inteiro     # integer 
+tabela_simbolos_atualiza_tipo:.
+Tabela de Simbolos: (topo:8)
+0 - Ident [input], nv_lex 0, deslocamento 0, 
+1 - Ident [output], nv_lex 0, deslocamento 1, 
+2 - Ident [m], CAT [VS], nv_lex 0, deslocamento 0, TIPO [ inteiro ]
+3 - Ident [n], CAT [VS], nv_lex 0, deslocamento 1, TIPO [ inteiro ]
+4 - Ident [o], CAT [VS], nv_lex 0, deslocamento 2, TIPO [ inteiro ]
+5 - Ident [p], CAT [VS], nv_lex 0, deslocamento 3, TIPO [ inteiro ]
+6 - Ident [q], CAT [VS], nv_lex 0, deslocamento 4, TIPO [ inteiro ]
+7 - Ident [r], CAT [VS], nv_lex 0, deslocamento 5, TIPO [ inteiro ]
+pt_virgula      # ; 
+begin     # begin 
+end      # end 
+tabela_simbolos_remove_vs_ultimo_nv_lex:.
+Tabela de Simbolos: (topo:2)
+0 - Ident [input], nv_lex 0, deslocamento 0, 
+1 - Ident [output], nv_lex 0, deslocamento 1, 
+ponto      # . 
+Finalizando...

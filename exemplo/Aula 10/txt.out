@@ -1,0 +1,486 @@
+tabela_simbolos_init
+Tabela de Simbolos: (topo:-1 e tamanho: 0)
+GGeraCodigo INPP 
+program     # program 
+ident      # proc1 
+abre_parenteses      # ( 
+ident      # input 
+virgula      # , 
+ident      # output 
+fecha_parenteses     # ) 
+pt_virgula      # ; 
+var      # var 
+ident      # x 
+tabela_simbolos_push: token x e 0 addrs 0x7ffd19bcc648.
+Tabela de Simbolos: (topo:0 e tamanho: 1)
+0 - Ident [x], CAT [VS], nv_lex 0, deslocamento 0, 
+virgula      # , 
+ident      # y 
+tabela_simbolos_push: token y e 1 addrs 0x7ffd19bcc648.
+Tabela de Simbolos: (topo:1 e tamanho: 2)
+0 - Ident [x], CAT [VS], nv_lex 0, deslocamento 0, 
+1 - Ident [y], CAT [VS], nv_lex 0, deslocamento 1, 
+dois pontos     # : 
+inteiro     # integer 
+tabela_simbolos_atualiza_tipo:.
+Tabela de Simbolos: (topo:1 e tamanho: 2)
+0 - Ident [x], CAT [VS], nv_lex 0, deslocamento 0, TIPO [ inteiro ]
+1 - Ident [y], CAT [VS], nv_lex 0, deslocamento 1, TIPO [ inteiro ]
+pt_virgula      # ; 
+procedure     # procedure 
+GGeraCodigo AMEM 2 
+[0] - R00 
+[0] - R00 
+[1] - R01 
+GGeraCodigo DSVS R00 
+GGeraCodigo ENPR 1 
+ident      # p 
+tabela_simbolos_push: token p e 2 addrs 0x7ffd19bcc648.
+Tabela de Simbolos: (topo:2 e tamanho: 3)
+0 - Ident [x], CAT [VS], nv_lex 0, deslocamento 0, TIPO [ inteiro ]
+1 - Ident [y], CAT [VS], nv_lex 0, deslocamento 1, TIPO [ inteiro ]
+2 - Ident [p], CAT [PROC], nv_lex 1, rótulo R01 
+pt_virgula      # ; 
+var      # var 
+ident      # z 
+tabela_simbolos_push: token z e 3 addrs 0x7ffd19bcc648.
+Tabela de Simbolos: (topo:3 e tamanho: 4)
+0 - Ident [x], CAT [VS], nv_lex 0, deslocamento 0, TIPO [ inteiro ]
+1 - Ident [y], CAT [VS], nv_lex 0, deslocamento 1, TIPO [ inteiro ]
+2 - Ident [p], CAT [PROC], nv_lex 1, rótulo R01 
+3 - Ident [z], CAT [VS], nv_lex 1, deslocamento 0, 
+dois pontos     # : 
+inteiro     # integer 
+tabela_simbolos_atualiza_tipo:.
+Tabela de Simbolos: (topo:3 e tamanho: 4)
+0 - Ident [x], CAT [VS], nv_lex 0, deslocamento 0, TIPO [ inteiro ]
+1 - Ident [y], CAT [VS], nv_lex 0, deslocamento 1, TIPO [ inteiro ]
+2 - Ident [p], CAT [PROC], nv_lex 1, rótulo R01 
+3 - Ident [z], CAT [VS], nv_lex 1, deslocamento 0, TIPO [ inteiro ]
+pt_virgula      # ; 
+begin     # begin 
+GGeraCodigo AMEM 1 
+ident      # z 
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando z com z .
+tabela_simbolos_busca_simbolo: Simbolo identificado.
+Ident [z], CAT [VS], nv_lex 1, deslocamento 0, TIPO [ inteiro ]
+atribuicao      # := 
+ident      # x 
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando z com x .
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando p com x .
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando y com x .
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando x com x .
+tabela_simbolos_busca_simbolo: Simbolo identificado.
+Ident [x], CAT [VS], nv_lex 0, deslocamento 0, TIPO [ inteiro ]
+GGeraCodigo CRVL 0,0 
+pilha_vs_type_push:.
+[ inteiro ]
+pilha_vs_type_push:.
+[ inteiro ]
+pt_virgula      # ; 
+GGeraCodigo ARMZ 1,0 
+pilha_vs_type_push:.
+[ inteiro ][ inteiro ]
+MESMA Pilha 
+pilha 1 topo antes  1
+ Pilha1
+[ inteiro ][ inteiro ]
+pilha 2 topo antes  1
+ Pilha2
+[ inteiro ][ inteiro ]
+MESMA Pilha 
+pilha 1 topo antes  0
+ Pilha1
+[ inteiro ]
+pilha 2 topo antes  0
+ Pilha2
+[ inteiro ]
+f1 1
+f2 1
+pilha_vs_type_push:.
+[ inteiro ]
+0 topo depois
+ident      # x 
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando z com x .
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando p com x .
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando y com x .
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando x com x .
+tabela_simbolos_busca_simbolo: Simbolo identificado.
+Ident [x], CAT [VS], nv_lex 0, deslocamento 0, TIPO [ inteiro ]
+atribuicao      # := 
+ident      # x 
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando z com x .
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando p com x .
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando y com x .
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando x com x .
+tabela_simbolos_busca_simbolo: Simbolo identificado.
+Ident [x], CAT [VS], nv_lex 0, deslocamento 0, TIPO [ inteiro ]
+GGeraCodigo CRVL 0,0 
+pilha_vs_type_push:.
+[ inteiro ]
+pilha_vs_type_push:.
+[ inteiro ]
+menos      # - 
+ numero      # 1 
+GGeraCodigo CRCT 1 
+pilha_vs_type_push:.
+[ inteiro ]
+pilha_vs_type_push:.
+[ inteiro ][ inteiro ]
+pt_virgula      # ; 
+GGeraCodigo SUBT 
+MESMA Pilha 
+pilha 1 topo antes  1
+ Pilha1
+[ inteiro ][ inteiro ]
+pilha 2 topo antes  1
+ Pilha2
+[ inteiro ][ inteiro ]
+MESMA Pilha 
+pilha 1 topo antes  0
+ Pilha1
+[ inteiro ]
+pilha 2 topo antes  0
+ Pilha2
+[ inteiro ]
+f1 1
+f2 1
+pilha_vs_type_push:.
+[ inteiro ]
+0 topo depois
+GGeraCodigo ARMZ 0,0 
+pilha_vs_type_push:.
+[ inteiro ][ inteiro ]
+MESMA Pilha 
+pilha 1 topo antes  1
+ Pilha1
+[ inteiro ][ inteiro ]
+pilha 2 topo antes  1
+ Pilha2
+[ inteiro ][ inteiro ]
+MESMA Pilha 
+pilha 1 topo antes  0
+ Pilha1
+[ inteiro ]
+pilha 2 topo antes  0
+ Pilha2
+[ inteiro ]
+f1 1
+f2 1
+pilha_vs_type_push:.
+[ inteiro ]
+0 topo depois
+if     # if 
+abre_parenteses      # ( 
+ident      # z 
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando z com z .
+tabela_simbolos_busca_simbolo: Simbolo identificado.
+Ident [z], CAT [VS], nv_lex 1, deslocamento 0, TIPO [ inteiro ]
+GGeraCodigo CRVL 1,0 
+pilha_vs_type_push:.
+[ inteiro ]
+pilha_vs_type_push:.
+[ inteiro ]
+maior que     # > 
+ numero      # 1 
+GGeraCodigo CRCT 1 
+pilha_vs_type_push:.
+[ inteiro ]
+pilha_vs_type_push:.
+[ inteiro ][ inteiro ]
+fecha_parenteses     # ) 
+GGeraCodigo CMMA 
+MESMA Pilha 
+pilha 1 topo antes  1
+ Pilha1
+[ inteiro ][ inteiro ]
+pilha 2 topo antes  1
+ Pilha2
+[ inteiro ][ inteiro ]
+MESMA Pilha 
+pilha 1 topo antes  0
+ Pilha1
+[ inteiro ]
+pilha 2 topo antes  0
+ Pilha2
+[ inteiro ]
+f1 1
+f2 1
+pilha_vs_type_push:.
+[ inteiro ]
+0 topo depois
+pilha_vs_type_push:.
+[ inteiro ][ desconhecido ]
+then     # then 
+[0] - R00 
+[1] - R01 
+[2] - R02 
+[0] - R00 
+[1] - R01 
+[2] - R02 
+[3] - R03 
+GGeraCodigo DSVF R02 
+ident      # p 
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando z com p .
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando p com p .
+tabela_simbolos_busca_simbolo: Simbolo identificado.
+Ident [p], CAT [PROC], nv_lex 1, rótulo R01 
+else     # else 
+GGeraCodigo CHPR R01,1 
+GGeraCodigo DSVS R03 
+GGeraCodigo NADA 
+ident      # y 
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando z com y .
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando p com y .
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando y com y .
+tabela_simbolos_busca_simbolo: Simbolo identificado.
+Ident [y], CAT [VS], nv_lex 0, deslocamento 1, TIPO [ inteiro ]
+atribuicao      # := 
+ numero      # 1 
+GGeraCodigo CRCT 1 
+pilha_vs_type_push:.
+[ inteiro ]
+pilha_vs_type_push:.
+[ inteiro ]
+pt_virgula      # ; 
+GGeraCodigo ARMZ 0,1 
+pilha_vs_type_push:.
+[ inteiro ][ inteiro ]
+MESMA Pilha 
+pilha 1 topo antes  1
+ Pilha1
+[ inteiro ][ inteiro ]
+pilha 2 topo antes  1
+ Pilha2
+[ inteiro ][ inteiro ]
+MESMA Pilha 
+pilha 1 topo antes  0
+ Pilha1
+[ inteiro ]
+pilha 2 topo antes  0
+ Pilha2
+[ inteiro ]
+f1 1
+f2 1
+pilha_vs_type_push:.
+[ inteiro ]
+0 topo depois
+GGeraCodigo NADA 
+ident      # y 
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando z com y .
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando p com y .
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando y com y .
+tabela_simbolos_busca_simbolo: Simbolo identificado.
+Ident [y], CAT [VS], nv_lex 0, deslocamento 1, TIPO [ inteiro ]
+atribuicao      # := 
+ident      # y 
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando z com y .
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando p com y .
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando y com y .
+tabela_simbolos_busca_simbolo: Simbolo identificado.
+Ident [y], CAT [VS], nv_lex 0, deslocamento 1, TIPO [ inteiro ]
+GGeraCodigo CRVL 0,1 
+pilha_vs_type_push:.
+[ inteiro ]
+pilha_vs_type_push:.
+[ inteiro ]
+vezes      # * 
+ident      # z 
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando z com z .
+tabela_simbolos_busca_simbolo: Simbolo identificado.
+Ident [z], CAT [VS], nv_lex 1, deslocamento 0, TIPO [ inteiro ]
+GGeraCodigo CRVL 1,0 
+pilha_vs_type_push:.
+[ inteiro ]
+resolveTipoP1P2toP1:Pilhas Diferentes 
+pilha 1 topo antes  0
+ Pilha1
+[ inteiro ]
+pilha 2 topo antes  0
+ Pilha2
+[ inteiro ]
+Depois pop f1
+pilha 1 topo antes  -1
+ Pilha1
+
+pilha 2 topo antes  0
+ Pilha2
+[ inteiro ]
+Depois pop f2
+pilha 1 topo antes  -1
+ Pilha1
+
+pilha 2 topo antes  -1
+ Pilha2
+
+f1 1
+f2 1
+pilha_vs_type_push:.
+[ inteiro ]
+0 topo depois
+GGeraCodigo MULT 
+end      # end 
+GGeraCodigo ARMZ 0,1 
+pilha_vs_type_push:.
+[ inteiro ][ inteiro ]
+MESMA Pilha 
+pilha 1 topo antes  1
+ Pilha1
+[ inteiro ][ inteiro ]
+pilha 2 topo antes  1
+ Pilha2
+[ inteiro ][ inteiro ]
+MESMA Pilha 
+pilha 1 topo antes  0
+ Pilha1
+[ inteiro ]
+pilha 2 topo antes  0
+ Pilha2
+[ inteiro ]
+f1 1
+f2 1
+pilha_vs_type_push:.
+[ inteiro ]
+0 topo depois
+tabela_simbolos_remove_procedimentos_internos_do_nv_lex:.
+Tabela de Simbolos: (topo:3 e tamanho: 4)
+0 - Ident [x], CAT [VS], nv_lex 0, deslocamento 0, TIPO [ inteiro ]
+1 - Ident [y], CAT [VS], nv_lex 0, deslocamento 1, TIPO [ inteiro ]
+2 - Ident [p], CAT [PROC], nv_lex 1, rótulo R01 
+3 - Ident [z], CAT [VS], nv_lex 1, deslocamento 0, TIPO [ inteiro ]
+tabela_simbolos_remove_vs_ultimo_nv_lex:.
+Tabela de Simbolos: (topo:2 e tamanho: 3)
+0 - Ident [x], CAT [VS], nv_lex 0, deslocamento 0, TIPO [ inteiro ]
+1 - Ident [y], CAT [VS], nv_lex 0, deslocamento 1, TIPO [ inteiro ]
+2 - Ident [p], CAT [PROC], nv_lex 1, rótulo R01 
+GGeraCodigo DMEM 1 
+GGeraCodigo RTPR 1,0 
+GGeraCodigo NADA 
+pt_virgula      # ; 
+begin     # begin 
+read     # read 
+abre_parenteses      # ( 
+ident      # x 
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando p com x .
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando y com x .
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando x com x .
+tabela_simbolos_busca_simbolo: Simbolo identificado.
+Ident [x], CAT [VS], nv_lex 0, deslocamento 0, TIPO [ inteiro ]
+GGeraCodigo LEIT 
+GGeraCodigo ARMZ 0,0 
+fecha_parenteses     # ) 
+pt_virgula      # ; 
+ident      # p 
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando p com p .
+tabela_simbolos_busca_simbolo: Simbolo identificado.
+Ident [p], CAT [PROC], nv_lex 1, rótulo R01 
+pt_virgula      # ; 
+GGeraCodigo CHPR R01,0 
+write     # write 
+abre_parenteses      # ( 
+ident      # x 
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando p com x .
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando y com x .
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando x com x .
+tabela_simbolos_busca_simbolo: Simbolo identificado.
+Ident [x], CAT [VS], nv_lex 0, deslocamento 0, TIPO [ inteiro ]
+GGeraCodigo CRVL 0,0 
+pilha_vs_type_push:.
+[ inteiro ]
+pilha_vs_type_push:.
+[ inteiro ]
+virgula      # , 
+GGeraCodigo IMPR 
+ident      # y 
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando p com y .
+tabela_simbolos_busca_simbolo: Procurando Simbolo
+tabela_simbolos_busca_simbolo:
+ Comparando y com y .
+tabela_simbolos_busca_simbolo: Simbolo identificado.
+Ident [y], CAT [VS], nv_lex 0, deslocamento 1, TIPO [ inteiro ]
+GGeraCodigo CRVL 0,1 
+pilha_vs_type_push:.
+[ inteiro ]
+pilha_vs_type_push:.
+[ inteiro ][ inteiro ]
+fecha_parenteses     # ) 
+GGeraCodigo IMPR 
+end      # end 
+tabela_simbolos_remove_procedimentos_internos_do_nv_lex:.
+Tabela de Simbolos: (topo:1 e tamanho: 2)
+0 - Ident [x], CAT [VS], nv_lex 0, deslocamento 0, TIPO [ inteiro ]
+1 - Ident [y], CAT [VS], nv_lex 0, deslocamento 1, TIPO [ inteiro ]
+tabela_simbolos_remove_vs_ultimo_nv_lex:.
+Tabela de Simbolos: (topo:-1 e tamanho: 0)
+GGeraCodigo DMEM 2 
+ponto      # . 
+Finalizando...
+GGeraCodigo PARA 

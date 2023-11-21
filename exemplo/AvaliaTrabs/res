@@ -1,0 +1,110 @@
+tabela_simbolos_init
+Tabela de Simbolos: (topo:-1 e tamanho: 0)
+GeraCodigo INPP 
+program     # program 
+ident      # exemploErro2 
+abre_parenteses      # ( 
+ident      # input 
+virgula      # , 
+ident      # output 
+fecha_parenteses     # ) 
+pt_virgula      # ; 
+var      # var 
+ident      # n 
+tabela_simbolos_push: token n e 0 addrs 0x7ffca1975e48.
+Tabela de Simbolos: (topo:0 e tamanho: 1)
+0 - Ident [n], CAT [ VS ], nv_lex 0, deslocamento [  0], TIPO [ ???????? ]
+virgula      # , 
+ident      # k 
+tabela_simbolos_push: token k e 1 addrs 0x7ffca1975e48.
+Tabela de Simbolos: (topo:1 e tamanho: 2)
+0 - Ident [n], CAT [ VS ], nv_lex 0, deslocamento [  0], TIPO [ ???????? ]
+1 - Ident [k], CAT [ VS ], nv_lex 0, deslocamento [  1], TIPO [ ???????? ]
+dois pontos     # : 
+inteiro     # integer 
+tabela_simbolos_atualiza_tipo:.
+Tabela de Simbolos: (topo:1 e tamanho: 2)
+0 - Ident [n], CAT [ VS ], nv_lex 0, deslocamento [  0], TIPO [ inteiro  ]
+1 - Ident [k], CAT [ VS ], nv_lex 0, deslocamento [  1], TIPO [ inteiro  ]
+pt_virgula      # ; 
+begin     # begin 
+GeraCodigo AMEM 2 
+read     # read 
+abre_parenteses      # ( 
+ident      # n 
+tabela_simbolos_busca_simbolo:
+    Procurando Simbolo ...
+      Comparando k com n .
+      Comparando n com n .
+      Simbolo identificado. "n"
+Ident [n], CAT [ VS ], nv_lex 0, deslocamento [  0], TIPO [ inteiro  ]
+GeraCodigo LEIT 
+GeraCodigo ARMZ 0,0 
+fecha_parenteses     # ) 
+pt_virgula      # ; 
+read     # read 
+abre_parenteses      # ( 
+ident      # k 
+tabela_simbolos_busca_simbolo:
+    Procurando Simbolo ...
+      Comparando k com k .
+      Simbolo identificado. "k"
+Ident [k], CAT [ VS ], nv_lex 0, deslocamento [  1], TIPO [ inteiro  ]
+GeraCodigo LEIT 
+GeraCodigo ARMZ 0,1 
+fecha_parenteses     # ) 
+pt_virgula      # ; 
+if     # if 
+abre_parenteses      # ( 
+ident      # n 
+tabela_simbolos_busca_simbolo:
+    Procurando Simbolo ...
+      Comparando k com n .
+      Comparando n com n .
+      Simbolo identificado. "n"
+Ident [n], CAT [ VS ], nv_lex 0, deslocamento [  0], TIPO [ inteiro  ]
+
+
+
+carrega_identidade_em_atribuicao:
+    P_Real
+  Ident [n], CAT [ VS ], nv_lex 0, deslocamento [  0], TIPO [ inteiro  ]
+    indx_var 0
+GeraCodigo CRVL 0,0 
+pilha_vs_type_push:.
+[ inteiro ]
+mais      # + 
+pilha_vs_type_push:.
+[ inteiro ]
+ numero      # 1 
+GeraCodigo CRCT 1 
+pilha_vs_type_push:.
+[ inteiro ]
+pilha_vs_type_push:.
+[ inteiro ][ inteiro ]
+fecha_parenteses     # ) 
+GeraCodigo SOMA 
+MESMA Pilha 
+pilha 1 topo antes  1
+ Pilha1
+[ inteiro ][ inteiro ]
+pilha 2 topo antes  1
+ Pilha2
+[ inteiro ][ inteiro ]
+MESMA Pilha 
+pilha 1 topo antes  0
+ Pilha1
+[ inteiro ]
+pilha 2 topo antes  0
+ Pilha2
+[ inteiro ]
+f1 1
+f2 1
+pilha_vs_type_push:.
+[ inteiro ]
+0 topo depois
+pilha_vs_type_push:.
+[ inteiro ]
+pilha_vs_type_push:.
+[ inteiro ]
+then     # then 

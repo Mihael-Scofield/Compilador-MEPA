@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.y": "c",
+        "type_traits": "cpp"
+    },
+    "cmake.configureOnOpen": false
+}

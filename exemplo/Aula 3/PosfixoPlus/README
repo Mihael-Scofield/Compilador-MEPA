@@ -1,0 +1,13 @@
+
+1. Para gerar o execut�vel: "make" 
+
+2. Para executar, edite um arquivo com alguma senten�a v�lida (arquivo
+"entradaCerta"), ou inv�lida ("entradaErrada"). 
+
+3. digite "posfixo < entradaCerta" ou "posfixo < entradaErrada" 
+   para a entrada "a+a*a-a", gera "AAA*+A-", e 
+   para a entrada "a+a*a--a", gera "syntax error "AAA*+"
+
+
+
+### Conjunções, ou seja, AND, antes de Disjunções, OU.

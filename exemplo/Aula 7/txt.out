@@ -1,0 +1,82 @@
+tabela_simbolos_init
+Tabela de Simbolos: (topo:-1 e tamanho: 0)
+program     # program 
+ident      # varsGlobais 
+abre_parenteses      # ( 
+ident      # input 
+virgula      # , 
+ident      # output 
+fecha_parenteses     # ) 
+pt_virgula      # ; 
+var      # var 
+ident      # a 
+tabela_simbolos_push: token a e 0 addrs 0x7ffc56751b88.
+Tabela de Simbolos: (topo:0 e tamanho: 1)
+0 - Ident [a], CAT [VS], nv_lex 0, deslocamento 0, 
+dois pontos     # : 
+inteiro     # integer 
+tabela_simbolos_atualiza_tipo:.
+Tabela de Simbolos: (topo:0 e tamanho: 1)
+0 - Ident [a], CAT [VS], nv_lex 0, deslocamento 0, TIPO [ inteiro ]
+pt_virgula      # ; 
+ident      # b 
+tabela_simbolos_push: token b e 1 addrs 0x7ffc56751b88.
+Tabela de Simbolos: (topo:1 e tamanho: 2)
+0 - Ident [a], CAT [VS], nv_lex 0, deslocamento 0, TIPO [ inteiro ]
+1 - Ident [b], CAT [VS], nv_lex 0, deslocamento 1, 
+dois pontos     # : 
+booleano     # boolean 
+tabela_simbolos_atualiza_tipo:.
+Tabela de Simbolos: (topo:1 e tamanho: 2)
+0 - Ident [a], CAT [VS], nv_lex 0, deslocamento 0, TIPO [ inteiro ]
+1 - Ident [b], CAT [VS], nv_lex 0, deslocamento 1, TIPO [ booleano ]
+pt_virgula      # ; 
+begin     # begin 
+ident      # a 
+tabela_simbolos_busca_simbolo: Simbolo identificado.
+Ident [a], CAT [VS], nv_lex 0, deslocamento 0, TIPO [ inteiro ]
+atribuicao      # := 
+ numero      # 9 
+pilha_vs_type_push:.
+[ inteiro ]
+pt_virgula      # ; 
+pilha_vs_type_push:.
+[ inteiro ]
+pilha_vs_type_push:.
+[ inteiro ][ inteiro ]
+pilha_vs_type_push:.
+[ inteiro ]
+[ inteiro ]
+ident      # b 
+tabela_simbolos_busca_simbolo: Simbolo identificado.
+Ident [b], CAT [VS], nv_lex 0, deslocamento 1, TIPO [ booleano ]
+atribuicao      # := 
+true     # true 
+pilha_vs_type_push:.
+[ booleano ]
+pt_virgula      # ; 
+pilha_vs_type_push:.
+[ booleano ]
+pilha_vs_type_push:.
+[ booleano ][ booleano ]
+pilha_vs_type_push:.
+[ booleano ]
+[ booleano ]
+ident      # a 
+tabela_simbolos_busca_simbolo: Simbolo identificado.
+Ident [a], CAT [VS], nv_lex 0, deslocamento 0, TIPO [ inteiro ]
+atribuicao      # := 
+ numero      # 40 
+pilha_vs_type_push:.
+[ inteiro ]
+mais      # + 
+pilha_vs_type_push:.
+[ inteiro ]
+ident      # b 
+tabela_simbolos_busca_simbolo: Simbolo identificado.
+Ident [b], CAT [VS], nv_lex 0, deslocamento 1, TIPO [ booleano ]
+pilha_vs_type_push:.
+[ booleano ]
+pt_virgula      # ; 
+pilha_vs_type_push:.
+[ inteiro ][ booleano ]

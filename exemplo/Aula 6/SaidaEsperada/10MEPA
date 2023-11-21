@@ -1,0 +1,24 @@
+     INPP
+     AMEM 4
+     CRCT 0
+     ARMZ 0,0
+     CRVL 0,0
+     CRCT -1
+     MULT
+     CRCT 10
+     CRVL 0,0
+     MULT
+     SOMA
+     ARMZ 0,1
+     LEIT
+     ARMZ 0,0
+     LEIT
+     ARMZ 0,1
+     CRVL 0,0
+     IMPR
+     CRCT 10
+     CRVL 0,1
+     MULT
+     IMPR
+     DMEM 4
+     PARA
