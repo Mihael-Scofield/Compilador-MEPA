@@ -105,39 +105,39 @@ int num_vars;
 /* Symbol kind.  */
 enum yysymbol_kind_t
 {
-  YYSYMBOL_YYEMPTY            = -2,
-  YYSYMBOL_YYEOF              = 0,         /* "end of file"  */
-  YYSYMBOL_YYerror            = 1,         /* error  */
-  YYSYMBOL_YYUNDEF            = 2,         /* "invalid token"  */
-  YYSYMBOL_PROGRAM            = 3,         /* PROGRAM  */
-  YYSYMBOL_ABRE_PARENTESES    = 4,         /* ABRE_PARENTESES  */
-  YYSYMBOL_FECHA_PARENTESES   = 5,         /* FECHA_PARENTESES  */
-  YYSYMBOL_VIRGULA            = 6,         /* VIRGULA  */
-  YYSYMBOL_PONTO_E_VIRGULA    = 7,         /* PONTO_E_VIRGULA  */
-  YYSYMBOL_DOIS_PONTOS        = 8,         /* DOIS_PONTOS  */
-  YYSYMBOL_PONTO              = 9,         /* PONTO  */
-  YYSYMBOL_T_BEGIN            = 10,        /* T_BEGIN  */
-  YYSYMBOL_T_END              = 11,        /* T_END  */
-  YYSYMBOL_VAR                = 12,        /* VAR  */
-  YYSYMBOL_IDENT              = 13,        /* IDENT  */
-  YYSYMBOL_ATRIBUICAO         = 14,        /* ATRIBUICAO  */
-  YYSYMBOL_YYACCEPT           = 15,        /* $accept  */
-  YYSYMBOL_programa           = 16,        /* programa  */
-  YYSYMBOL_17_1               = 17,        /* $@1  */
-  YYSYMBOL_bloco              = 18,        /* bloco  */
-  YYSYMBOL_19_2               = 19,        /* $@2  */
+  YYSYMBOL_YYEMPTY = -2,
+  YYSYMBOL_YYEOF = 0,                      /* "end of file"  */
+  YYSYMBOL_YYerror = 1,                    /* error  */
+  YYSYMBOL_YYUNDEF = 2,                    /* "invalid token"  */
+  YYSYMBOL_PROGRAM = 3,                    /* PROGRAM  */
+  YYSYMBOL_ABRE_PARENTESES = 4,            /* ABRE_PARENTESES  */
+  YYSYMBOL_FECHA_PARENTESES = 5,           /* FECHA_PARENTESES  */
+  YYSYMBOL_VIRGULA = 6,                    /* VIRGULA  */
+  YYSYMBOL_PONTO_E_VIRGULA = 7,            /* PONTO_E_VIRGULA  */
+  YYSYMBOL_DOIS_PONTOS = 8,                /* DOIS_PONTOS  */
+  YYSYMBOL_PONTO = 9,                      /* PONTO  */
+  YYSYMBOL_T_BEGIN = 10,                   /* T_BEGIN  */
+  YYSYMBOL_T_END = 11,                     /* T_END  */
+  YYSYMBOL_VAR = 12,                       /* VAR  */
+  YYSYMBOL_IDENT = 13,                     /* IDENT  */
+  YYSYMBOL_ATRIBUICAO = 14,                /* ATRIBUICAO  */
+  YYSYMBOL_YYACCEPT = 15,                  /* $accept  */
+  YYSYMBOL_programa = 16,                  /* programa  */
+  YYSYMBOL_17_1 = 17,                      /* $@1  */
+  YYSYMBOL_bloco = 18,                     /* bloco  */
+  YYSYMBOL_19_2 = 19,                      /* $@2  */
   YYSYMBOL_parte_declara_vars = 20,        /* parte_declara_vars  */
-  YYSYMBOL_var                = 21,        /* var  */
-  YYSYMBOL_22_3               = 22,        /* $@3  */
-  YYSYMBOL_declara_vars       = 23,        /* declara_vars  */
-  YYSYMBOL_declara_var        = 24,        /* declara_var  */
-  YYSYMBOL_25_4               = 25,        /* $@4  */
-  YYSYMBOL_26_5               = 26,        /* $@5  */
-  YYSYMBOL_tipo               = 27,        /* tipo  */
-  YYSYMBOL_lista_id_var       = 28,        /* lista_id_var  */
-  YYSYMBOL_lista_idents       = 29,        /* lista_idents  */
-  YYSYMBOL_comando_composto   = 30,        /* comando_composto  */
-  YYSYMBOL_comandos           = 31         /* comandos  */
+  YYSYMBOL_var = 21,                       /* var  */
+  YYSYMBOL_22_3 = 22,                      /* $@3  */
+  YYSYMBOL_declara_vars = 23,              /* declara_vars  */
+  YYSYMBOL_declara_var = 24,               /* declara_var  */
+  YYSYMBOL_25_4 = 25,                      /* $@4  */
+  YYSYMBOL_26_5 = 26,                      /* $@5  */
+  YYSYMBOL_tipo = 27,                      /* tipo  */
+  YYSYMBOL_lista_id_var = 28,              /* lista_id_var  */
+  YYSYMBOL_lista_idents = 29,              /* lista_idents  */
+  YYSYMBOL_comando_composto = 30,          /* comando_composto  */
+  YYSYMBOL_comandos = 31                   /* comandos  */
 };
 typedef enum yysymbol_kind_t yysymbol_kind_t;
 

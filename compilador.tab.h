@@ -50,22 +50,22 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
-    YYEMPTY          = -2,
-    YYEOF            = 0,          /* "end of file"  */
-    YYerror          = 256,        /* error  */
-    YYUNDEF          = 257,        /* "invalid token"  */
-    PROGRAM          = 258,        /* PROGRAM  */
-    ABRE_PARENTESES  = 259,        /* ABRE_PARENTESES  */
+    YYEMPTY = -2,
+    YYEOF = 0,                     /* "end of file"  */
+    YYerror = 256,                 /* error  */
+    YYUNDEF = 257,                 /* "invalid token"  */
+    PROGRAM = 258,                 /* PROGRAM  */
+    ABRE_PARENTESES = 259,         /* ABRE_PARENTESES  */
     FECHA_PARENTESES = 260,        /* FECHA_PARENTESES  */
-    VIRGULA          = 261,        /* VIRGULA  */
-    PONTO_E_VIRGULA  = 262,        /* PONTO_E_VIRGULA  */
-    DOIS_PONTOS      = 263,        /* DOIS_PONTOS  */
-    PONTO            = 264,        /* PONTO  */
-    T_BEGIN          = 265,        /* T_BEGIN  */
-    T_END            = 266,        /* T_END  */
-    VAR              = 267,        /* VAR  */
-    IDENT            = 268,        /* IDENT  */
-    ATRIBUICAO       = 269         /* ATRIBUICAO  */
+    VIRGULA = 261,                 /* VIRGULA  */
+    PONTO_E_VIRGULA = 262,         /* PONTO_E_VIRGULA  */
+    DOIS_PONTOS = 263,             /* DOIS_PONTOS  */
+    PONTO = 264,                   /* PONTO  */
+    T_BEGIN = 265,                 /* T_BEGIN  */
+    T_END = 266,                   /* T_END  */
+    VAR = 267,                     /* VAR  */
+    IDENT = 268,                   /* IDENT  */
+    ATRIBUICAO = 269               /* ATRIBUICAO  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
